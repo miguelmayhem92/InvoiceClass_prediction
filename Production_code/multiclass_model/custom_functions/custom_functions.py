@@ -4,10 +4,26 @@ import pandas as pd
 import numpy as np
 from sklearn.base import BaseEstimator, TransformerMixin
 
-def splitter(data: pd.DataFrame)  -> pd.DataFrame:
-    data[['TypeEnt','TypeEnt_number']] = data.Vendor_Code.str.split('-',expand=True)
-    data[['GCL','GCL_number']] = data.GL_Code.str.split('-',expand=True)
-    return data
+class splitter(BaseEstimator, TransformerMixin):
+    
+    def __init__(self, variables: List[str], new_variable_names: List[str]):
+        
+        if not isinstance(variables, list):
+            raise ValueError('variables should be a list')
+            
+        self.variables = variables
+        self.new_variable_names = new_variable_names
+        
+    def fit(self, X: pd.DataFrame, y:pd.Series = None):
+        # we need the fit statement to accomodate the sklearn pipeline
+        return self
+
+    def transform(self, X) -> pd.DataFrame:
+        X = X.copy()
+        for feature, feature_name in zip(self.variables, self.new_variable_names):
+            X[[feature, feature_name]] = X[feature].str.split('-',expand=True)
+
+        return X
 
 
 class Mapper(BaseEstimator, TransformerMixin):

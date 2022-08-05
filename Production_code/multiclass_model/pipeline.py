@@ -14,6 +14,13 @@ from config.core import config
 TypeEnt_number_maps = load_json(file_name=config.app_config.json_file_TypeEnt)
 
 category_prediction_pipeline = Pipeline([
+
+    ('splitter',
+     cf.splitter(variables = config.model_config.split_features, 
+        new_variable_names = config.model_config.split_features_names)
+    ),
+
+
     ('GCL_Code-cardinal-ordering',
      OrdinalEncoder(encoding_method='ordered', variables = config.model_config.ordinal_encode)
     ),

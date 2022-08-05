@@ -37,6 +37,8 @@ class ModelConfig(BaseModel):
     test_size: float
     random_state: int
     n_neighbors: int
+    split_features: List[str]
+    split_features_names: List[str]
     ordinal_encode: List[str]
     mapper_encode: List[str]
     drop_features: List[str]

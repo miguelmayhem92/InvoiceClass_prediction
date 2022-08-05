@@ -1,11 +1,12 @@
 Metadata-Version: 2.1
 Name: tid-multiclass-model
-Version: 0.0.1
+Version: 0.0.5
 Summary: Example multiclass model package from Train In Data.
 Home-page: https://github.com/miguelmayhem92/InvoiceClass_prediction
 Author: miguel
 Author-email: miguelmayhem92@gmail.com
 License: BSD-3
+Platform: UNKNOWN
 Classifier: License :: OSI Approved :: MIT License
 Classifier: Programming Language :: Python
 Classifier: Programming Language :: Python :: 3
@@ -19,3 +20,4 @@ Requires-Python: >=3.6.0
 Description-Content-Type: text/markdown
 
 Example multiclass model package from Train In Data.
+

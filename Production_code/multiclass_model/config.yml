@@ -31,6 +31,14 @@ random_state: 12
 n_neighbors: 4
 
 # categorical variables with NA in train set
+split_features:
+  - Vendor_Code
+  - GL_Code
+
+split_features_names:
+  - TypeEnt_number
+  - GCL_number
+  
 ordinal_encode:
   - GCL_number
 
@@ -42,8 +50,6 @@ drop_features:
   - Vendor_Code
   - GL_Code
   - Item_Description
-  - TypeEnt
-  - GCL
 
 fillna_features:
   - TypeEnt_number

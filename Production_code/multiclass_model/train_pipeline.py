@@ -3,7 +3,6 @@ from config.core import config
 from pipeline import category_prediction_pipeline
 from processing.data_manager import load_dataset, save_pipeline
 from sklearn.model_selection import train_test_split
-from multiclass_model.custom_functions import custom_functions as cf
 from processing.data_manager import load_json
 
 def run_training() -> None:
@@ -23,7 +22,6 @@ def run_training() -> None:
         test_size=config.model_config.test_size,
         random_state=config.model_config.random_state,
     )
-    X_train = cf.splitter(data = X_train)
 
     # fit model
     category_prediction_pipeline.fit(X_train, y_train)
