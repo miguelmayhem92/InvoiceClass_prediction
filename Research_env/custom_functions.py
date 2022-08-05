@@ -2,12 +2,6 @@ import pandas as pd
 import numpy as np
 from sklearn.base import BaseEstimator, TransformerMixin
 
-def splitter(data):
-    data[['TypeEnt','TypeEnt_number']] = data.Vendor_Code.str.split('-',expand=True)
-    data[['GCL','GCL_number']] = data.GL_Code.str.split('-',expand=True)
-    return data
-
-
 class Mapper(BaseEstimator, TransformerMixin):
 
     def __init__(self, variables, mappings):
