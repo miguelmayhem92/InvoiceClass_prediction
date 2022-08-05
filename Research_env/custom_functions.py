@@ -2,6 +2,28 @@ import pandas as pd
 import numpy as np
 from sklearn.base import BaseEstimator, TransformerMixin
 
+class splitter(BaseEstimator, TransformerMixin):
+    
+    def __init__(self, variables, new_variable_names):
+        
+        if not isinstance(variables, list):
+            raise ValueError('variables should be a list')
+            
+        self.variables = variables
+        self.new_variable_names = new_variable_names
+        
+    def fit(self, X, y=None):
+        # we need the fit statement to accomodate the sklearn pipeline
+        return self
+
+    def transform(self, X):
+        X = X.copy()
+        for feature, feature_name in zip(self.variables, self.new_variable_names):
+            X[[feature, feature_name]] = X[feature].str.split('-',expand=True)
+
+        return X
+
+
 class Mapper(BaseEstimator, TransformerMixin):
 
     def __init__(self, variables, mappings):
