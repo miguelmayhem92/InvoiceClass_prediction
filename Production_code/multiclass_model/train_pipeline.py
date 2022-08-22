@@ -1,9 +1,9 @@
 import numpy as np
 from config.core import config
 from pipeline import category_prediction_pipeline
-from processing.data_manager import load_dataset, save_pipeline
+from processing.data_manager import load_dataset, load_json, save_pipeline
 from sklearn.model_selection import train_test_split
-from processing.data_manager import load_json
+
 
 def run_training() -> None:
     """Train the model."""
@@ -13,7 +13,7 @@ def run_training() -> None:
     map_target = load_json(file_name=config.app_config.json_file_target)
 
     ## to get numerical labels for the target
-    data['Map_Product_Category'] = data.Product_Category.map(map_target)
+    data["Map_Product_Category"] = data.Product_Category.map(map_target)
 
     # divide train and test
     X_train, X_test, y_train, y_test = train_test_split(

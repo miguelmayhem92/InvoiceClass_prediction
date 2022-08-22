@@ -1,19 +1,24 @@
+import json
 import typing as t
 from pathlib import Path
 
 import joblib
-import json
 import pandas as pd
 from sklearn.pipeline import Pipeline
 
 from multiclass_model import __version__ as _version
-from multiclass_model.config.core import DATASET_DIR, JSON_DIR, TRAINED_MODEL_DIR, config
+from multiclass_model.config.core import (
+    DATASET_DIR,
+    JSON_DIR,
+    TRAINED_MODEL_DIR,
+    config,
+)
 
 
-def load_json(*, file_name:str)  -> dict:
+def load_json(*, file_name: str) -> dict:
     path_to_json = Path(f"{JSON_DIR}/{file_name}")
 
-    with open(path_to_json, 'r') as fp:
+    with open(path_to_json, "r") as fp:
         TypeEnt_number_maps = json.load(fp)
     return TypeEnt_number_maps
 

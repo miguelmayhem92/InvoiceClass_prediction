@@ -18,7 +18,7 @@ multiclass_model/processing/__init__.py
 multiclass_model/processing/data_manager.py
 multiclass_model/processing/validation.py
 multiclass_model/trained_models/__init__.py
-multiclass_model/trained_models/multiclass_model_output_v0.0.5.pkl
+multiclass_model/trained_models/multiclass_model_output_v0.1.0.pkl
 requirements/requirements.txt
 requirements/test_requirements.txt
 tid_multiclass_model.egg-info/PKG-INFO

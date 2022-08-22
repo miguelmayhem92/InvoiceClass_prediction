@@ -11,9 +11,8 @@ class InvoiceDataSchema(BaseModel):
     Inv_Id: Optional[int]
     Vendor_Code: Optional[str]
     GL_Code: Optional[str]
-    Inv_Amt:Optional[float]
+    Inv_Amt: Optional[float]
     Item_Description: Optional[str]
-    
 
 
 class MultipleInvoiceDataSchema(BaseModel):

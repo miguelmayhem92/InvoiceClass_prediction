@@ -23,12 +23,27 @@ initial_features:
 
 
 # set train/test split
-test_size: 0.33
+test_size: 0.30
+n_size: 30
+test_threshold: 70 
 
 # to set the random seed
 random_state: 12
 
-n_neighbors: 4
+# Description explotation using regex
+single_text_column:
+  - Item_Description
+
+double_text_column:
+  - Item_Description
+  - Item_Description
+
+items_in_description_name:
+  - ItemsInDescription
+
+keywords_and_company:
+  - KeyWords
+  - CompanyFoundType
 
 # categorical variables with NA in train set
 split_features:
@@ -41,6 +56,8 @@ split_features_names:
   
 ordinal_encode:
   - GCL_number
+  - KeyWords
+  - CompanyFoundType
 
 mapper_encode:
   - TypeEnt_number
@@ -53,6 +70,12 @@ drop_features:
 
 fillna_features:
   - TypeEnt_number
+  - KeyWords
+  - CompanyFoundType
+  - YearFound
+  - MonthFound
 
 json_file_TypeEnt: TypeEnt_number_maps.json
 json_file_target: map_target.json
+json_file_regexs: regex_to_use.json
+json_file_gbc_paramters: gbc_parameters.json

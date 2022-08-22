@@ -7,7 +7,7 @@ from multiclass_model.predict import make_prediction
 
 def test_make_prediction(sample_input_data):
     # Given
-    expected_first_prediction_value = 36
+    expected_first_prediction_value = 35
 
     # When
     result = make_prediction(input_data=sample_input_data)

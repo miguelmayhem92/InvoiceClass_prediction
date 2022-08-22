@@ -14,7 +14,10 @@ _classification_pipe = load_pipeline(file_name=pipeline_file_name)
 def make_prediction(input_data: pd.DataFrame) -> dict:
 
     data = pd.DataFrame(input_data)
-    results = {"predictions": None, "version": _version, }
+    results = {
+        "predictions": None,
+        "version": _version,
+    }
 
     predictions = _classification_pipe.predict(data)
 

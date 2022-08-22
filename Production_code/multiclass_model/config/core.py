@@ -14,6 +14,7 @@ DATASET_DIR = PACKAGE_ROOT / "datasets"
 TRAINED_MODEL_DIR = PACKAGE_ROOT / "trained_models"
 JSON_DIR = PACKAGE_ROOT / "custom_functions"
 
+
 class AppConfig(BaseModel):
     """
     Application-level config.
@@ -25,6 +26,9 @@ class AppConfig(BaseModel):
     pipeline_save_file: str
     json_file_TypeEnt: str
     json_file_target: str
+    json_file_regexs: str
+    json_file_gbc_paramters: str
+
 
 class ModelConfig(BaseModel):
     """
@@ -35,15 +39,21 @@ class ModelConfig(BaseModel):
     target: str
     initial_features: List[str]
     test_size: float
+    n_size: int
+    test_threshold: int
     random_state: int
-    n_neighbors: int
+
+    single_text_column: List[str]
+    double_text_column: List[str]
+    items_in_description_name: List[str]
+    keywords_and_company: List[str]
     split_features: List[str]
     split_features_names: List[str]
     ordinal_encode: List[str]
     mapper_encode: List[str]
     drop_features: List[str]
     fillna_features: List[str]
-    
+
 
 class Config(BaseModel):
     """Master config object."""
